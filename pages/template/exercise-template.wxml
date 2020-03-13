@@ -1,0 +1,14 @@
+<template name="msgItem">
+  <view class="boxContainer">
+    <view class="box">
+      <image mode="aspectFill" src="{{activityImg}}"></image>
+      <view class="box-information">
+        <text class="title">{{activityTitle}}</text>
+        <text>活动时间：{{activityStartTime}}</text>
+        <text wx:if="{{activityType==0?true:false}}">活动类型：<text>企业活动</text></text>
+        <text wx:else>活动类型：<text>个人活动</text></text>
+        <text>已报名：<text class="number">{{activityRegistarationPeople}}</text>人</text>
+      </view>
+    </view>
+  </view>
+</template>

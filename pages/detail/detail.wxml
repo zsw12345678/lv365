@@ -1,0 +1,174 @@
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+
+  <cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText" bindtap="returnPre">返回</view>
+    <view slot="content">活动详情</view>
+  </cu-custom>
+
+  <view class="detailContainer {{chooseSize==true?'hello':''}}">
+    <!--轮播图 -->
+    <image class="topImg" mode='aspectFill' src="{{detailObject.activityImg}}"></image>
+
+    <!--活动信息 -->
+    <view class="mainMsgBox">
+      <view class="mainMsg">
+        <view class="msg">
+          <view class="msgItem">
+            <text class="caption">活动名称：</text>
+            <text class="content">{{detailObject.activityTitle}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">活动类型：</text>
+            <text class="content" wx:if="{{activityType==0?true:false}}">企业活动</text>
+            <text class="content" wx:else>个人活动</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">发起人/单位：</text>
+            <text class="content">{{detailObject.activityLaunchUserName}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">活动地点：</text>
+            <text class="content">{{detailObject.addressName}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">活动开始时间：</text>
+            <text class="content">{{detailObject.activityStartTime}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">活动结束时间：</text>
+            <text class="content">{{detailObject.activityEndTime}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">费用：</text>
+            <text class="content" wx:if="{{detailObject.registrationFee == null}}">免费</text>
+            <text class="content" wx:else>{{detailObject.registrationFee}}元</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">人数：</text>
+            <text class="content">{{detailObject.activityPeopleQuota}}人</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">报名开始时间：</text>
+            <text class="content">{{detailObject.activityRegisterStartTime}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">报名截止时间：</text>
+            <text class="content">{{detailObject.activityRegisterEndTime}}</text>
+          </view>
+          <view class="msgItem">
+            <text class="caption">联系电话：</text>
+            <text class="content">{{detailObject.activityLaunchUserPhone}}</text>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+
+    <!--活动详情 -->
+    <view class="detailBox" wx:if="{{(status==0 || status==3 || status==4) && (detailObject.activityContent?true:false)}}">
+      <view class="detailContent">
+        <text class="retract left">{{detailObject.activityContent}}</text>
+      </view>
+    </view>
+
+    <view class="detailBox" wx:if="{{status==0 || status==1 || status==2 || status==3}}">
+      <view class="detailContent">
+        <view class="showNumberBox" bindtap='{{detailObject.activityRegistarationPeople>0?"showModal1":""}}' data-target="viewModal">
+          <view style="float: left;position: absolute;left: 0.5px;">
+            <text wx:if="{{status==3 || (status==0&&detailObject.activityState==='已审核，活动已结束')}}">总参与人数：</text>
+            <text wx:else>现参与人数：</text>
+            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>{{detailObject.activityRegistarationPeople}}人</view>
+          <text hidden="{{detailObject.activityRegistarationPeople>0?false:true}}" class="cuIcon-right" style="position: absolute;right: 0px;"></text>
+        </view>
+      </view>
+    </view>
+    <view class="detailBox" wx:if="{{status==0 || status==1 || status==2}}">
+      <view class="detailContent">
+        <view class="showNumberBox">
+          <view style="float: left;position: absolute;left: 0.5px;" wx:if="{{distanceTime}}">距离活动开始时间：
+            <text decode="{{true}}" space="{{true}}">&nbsp;</text>{{distanceTime}}</view>
+          <view style="float: left;position: absolute;left: 0.5px;" wx:if="{{detailObject.activityState==='已审核，活动已结束'}}">活动状态：
+            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>活动已结束</view>
+          <view style="float: left;position: absolute;left: 0.5px;" wx:if="{{detailObject.activityState==='已审核' && !distanceTime}}">活动状态：
+            <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>正在进行中</view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="flex flex-direction" bindtap="cancelActivity" wx:if="{{status==1}}">
+      <button class="cu-btn buttoncolor buttonfont lg">取消活动</button>
+    </view>
+
+    <view class="flex flex-direction" bindtap="exitActivity" wx:if="{{status==2}}">
+      <button class="cu-btn buttoncolor buttonfont lg">退出活动</button>
+    </view>
+
+    <view style="" wx:if="{{status==0 && detailObject.activityState!=='已审核，活动已结束' && detailObject.activityState!=='已审核，活动报名时间已过'}}">
+      <view class="flex-direction submit">
+        <button class="cu-btn buttoncolor" style="width:45%; height: 70rpx;float:left" bindtap="apply">马上报名</button>
+        <button class="cu-btn buttoncolor" style="width:45%; height: 70rpx;float:right" open-type='share'>分享活动</button>
+      </view>
+    </view>
+
+
+    <view class="flex flex-direction" bindtap="publish" wx:if="{{status==3}}">
+      <button class="cu-btn buttoncolor buttonfont lg">发布花絮</button>
+    </view>
+
+  </view>
+
+
+</scroll-view>
+
+
+<!-- 底部模态框 -->
+<view class='maskLayer' wx:if="{{chooseSize}}"></view>
+<form bindsubmit="formSubmit" class="choose" wx:if="{{chooseSize}}" animation='{{animationData}}'>
+  <view class="modelInput">
+    <view class="cu-form-group ">
+      <view class="title">姓名</view>
+      <input name="userName" placeholder="请输入姓名"></input>
+    </view>
+    <view class="cu-form-group ">
+      <view class="title">电话</view>
+      <input name="userPhone" placeholder="请输入电话" type="number" maxlength="11"></input>
+    </view>
+    <view class="cu-form-group ">
+      <view class="title">备注</view>
+      <input name="beizhu" placeholder="请输入备注"></input>
+    </view>
+  </view>
+  <view class=" flex">
+    <button form-type="submit" class="cu-btn lg bottomButton">
+      <text class="buttonContent">确认</text>
+    </button>
+    <button bindtap='makesure' class="cu-btn lg bottomButton">
+      <text class="buttonContent">取消</text>
+    </button>
+  </view>
+</form>
+
+
+
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal1">
+  <text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y bindscrolltolower="onReachBottom" class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item " wx:for="{{participatorArr}}" wx:key="index">
+      <view class="content" style="font-size:25rpx">
+        <view class="msgItem">
+          <text class="text-grey caption2">姓名：<text style="color:green">{{participatorArr[index].registrationName}}</text></text>
+          <text class="text-grey content2" wx:if="{{status==1 || (status==0 && isSponsor) ||(status==3 && isSponsor)}}">电话：<text style="color:#0081ff">{{participatorArr[index].registrationPhone}}</text></text>
+          <text class="text-grey content2" wx:else>电话：<text style="color:#0081ff">{{phoneArr[index]}}</text></text>
+        </view>
+       <text class="text-grey content2" style="margin:20rpx auto" wx:if="{{(participatorArr[index].registrationRemark) && (status==1 || (status==0 && isSponsor) ||(status==3 && isSponsor))}}">备注：{{participatorArr[index].registrationRemark}}</text>
+       <view style="margin-bottom:20rpx"></view>
+      </view>
+    
+    </view>
+   
+  </view>
+</scroll-view>

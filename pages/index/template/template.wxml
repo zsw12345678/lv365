@@ -1,0 +1,24 @@
+<template name="msgItem">
+
+  <view class=" whiteBox  back">
+    <view class="flex solid-bottom padding align-start"   bindtap="tofeatureDetail"  data-status="1"  data-index1="{{articleId}}">
+
+      <view class="margin-xs radius" style="width:25%">
+        <image src="{{articleImg[0]}}"  mode="aspectFill" style="height:130rpx;width:150rpx"></image>
+      </view>
+
+
+      <view class="margin-xs radius  template">
+        <view style="height:80%;position:relative;width:400rpx;">
+          <view style="top:0rpx;position:absolute;font-weight:bold;">{{articleTitle}}</view>
+           <view style="bottom:0rpx;position:absolute;font-size:26rpx">{{launchUserName}}</view>
+        </view>
+      </view>
+
+
+
+    </view>
+  </view>
+
+
+</template>

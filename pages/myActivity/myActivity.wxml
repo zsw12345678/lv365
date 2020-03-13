@@ -1,0 +1,89 @@
+<!--pages/myActivity/myActivity.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的活动</view>
+</cu-custom>
+
+<import src="template/myActivity-template.wxml" />
+
+<!-- 导航 -->
+<view class="navbar" style="top:{{CustomBar}}px;">
+  <text class="item {{currentTab==index?'active':''}}" wx:for="{{navbar}}" data-idx="{{index}}" wx:key="index" bindtap="filterTab">{{item}}</text>
+</view>
+
+<view wx:if='{{activityItems.length==0}}'>
+  <view class='nodatePhoto'>
+    <image class='nodatePhotos' src='../photo/nodate.png'></image>
+  </view>
+</view>
+
+<view class="activityContent" wx:else>
+
+  <!-- 已发起 -->
+  <view class="order" hidden="{{currentTab!=0}}">
+    <block wx:for="{{activityItems}}" wx:for-item="item" wx:key="{{index}}">
+      <view bindtap="toDetail" data-index='{{index}}'>
+        <!-- <template is="activityItem" data="{{...item}}" /> -->
+        <view class="box">
+          <view class="boxImg">
+            <image mode="aspectFill" src="{{item.activityImg}}"></image>
+          </view>
+          <view class="box-information">
+            <text>活动名称：<text class="title">{{item.activityTitle}}</text></text>
+            <text>活动时间：{{item.activityStartTime}}</text>
+            <text wx:if='{{(item.activityState==="已审核" && !item.whoCancel) || (item.activityState==="已审核，活动报名时间已过" && !item.whoCancel) || (item.activityState==="已审核，活动已结束" && !item.whoCancel)}}'>已报名：<text class="number">{{item.activityRegistarationPeople}}</text>人</text>
+            <text wx:if='{{item.whoCancel==="未通过审核"}}'>活动状态：未通过审核</text>
+            <text wx:if='{{item.activityState==="未审核"|| item.activityState==="未审核，活动报名时间已过" || item.activityState==="未审核，活动已结束"}}'>活动状态：待审核</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 已加入 -->
+  <view class="order" hidden="{{currentTab!=1}}">
+    <block wx:for="{{activityItems}}" wx:for-item="item" wx:key="{{index}}">
+      <view bindtap="toDetail" data-index='{{index}}'>
+        <!-- <template is="activityItem" data="{{...item}}" /> -->
+        <view class="box">
+          <view class="boxImg">
+            <image mode="aspectFill" src="{{item.activityImg}}"></image>
+          </view>
+          <view class="box-information">
+            <text>活动名称：<text class="title">{{item.activityTitle}}</text></text>
+            <text>活动时间：{{item.activityStartTime}}</text>
+            <text>已报名：<text class="number">{{item.activityRegistarationPeople}}</text>人</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 已完成 -->
+  <view class="order" hidden="{{currentTab!=2}}">
+    <block wx:for="{{activityItems}}" wx:for-item="item" wx:key="{{index}}">
+      <view bindtap="toDetail" data-index='{{index}}'>
+        <template is="activityItem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+
+  <!-- 已退出 -->
+  <view class="order" hidden="{{currentTab!=3}}">
+    <block wx:for="{{activityItems}}" wx:for-item="item" wx:key="{{index}}">
+      <view bindtap="toDetail" data-index='{{index}}'>
+        <template is="activityItem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+
+  <!-- 已取消 -->
+  <view class="order" hidden="{{currentTab!=4}}">
+    <block wx:for="{{activityItems}}" wx:for-item="item" wx:key="{{index}}">
+      <view bindtap="toDetail" data-index='{{index}}'>
+        <template is="activityItem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+
+</view>

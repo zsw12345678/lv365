@@ -1,0 +1,20 @@
+/* pages/search/search.wxss */
+@import '/pages/template/exercise-template.wxss';
+
+/* 搜索框 */
+
+/* 活动列表 */
+.exerciseLists {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 0;
+  /* padding-left: 46rpx; */
+  margin: 30rpx 20rpx;
+  position: relative;
+  top: 100rpx;
+}
+
+.exercise {
+  width: 50%;
+  margin-bottom: 30rpx;
+}

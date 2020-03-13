@@ -1,0 +1,48 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}" >
+	<view slot="backText">返回</view>
+	<view slot="content">编辑我的信息</view>
+</cu-custom>
+
+
+
+  <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content" bindtap="uploadPhoto">
+        <text class="text-grey">头像</text>
+       
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+         <image src="{{avatar}}"   mode="aspectFill"></image>
+         <text class="cuIcon-right text-blue right" ></text>
+      </view>
+    </view>
+  
+     <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="text-grey">昵称</text>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+        <text class="text-grey">{{nickname}}</text>
+         <!-- <text class="cuIcon-right text-blue right" bindtap="bindinput"></text> -->
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+        
+        <text class="text-grey">手机号</text>
+       <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+         <text class="text-grey">{{telephone}}</text>
+      </navigator>
+    </view>
+    
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+       
+        <text class="text-grey">性别</text>
+        <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+          <text class="text-grey">{{sex}}</text>
+      </view>
+      
+    </view>
+   
+    
+
+  </view>

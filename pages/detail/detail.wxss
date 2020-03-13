@@ -1,0 +1,287 @@
+/* pages/detail/detail.wxss */
+
+page {
+  /* background-image: var(--gradualGreen); */
+  width: 100vw;
+  overflow: hidden;
+}
+
+.DrawerPage {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0vw;
+  background-color: #f1f1f1;
+  transition: all 0.4s;
+}
+
+.DrawerPage.show {
+  transform: scale(0.9, 0.9);
+  left: 85vw;
+  box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
+  transform-origin: 0;
+}
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部图片 */
+.topImg {
+  width: 100%;
+  height: 400rpx;
+}
+
+/* 活动信息 */
+
+.mainMsgBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainMsg {
+  width: 88%;
+  background: #fff;
+  display: flex;
+  margin: 40rpx;
+  align-items: center;
+  justify-content: center;
+}
+
+.msg {
+  width: 88%;
+}
+
+.msgItem {
+  display: flex;
+  align-items: center;
+  color: #000;
+  margin: 30rpx auto;
+  font-size: 28rpx;
+}
+
+.caption {
+  display: block;
+  width: 36%;
+  text-align: left;
+}
+
+.content {
+  width: 65%;
+}
+
+/*活动详情 */
+
+
+.detailBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detailContent {
+  width: 88%;
+  margin: 0 auto;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.detailContent .retract {
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: #000;
+  width: 88%;
+  margin: 35rpx auto;
+}
+
+/*报名按钮 */
+
+.flex {
+  display: flex;
+
+  width: 88%;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+}
+
+.submit {
+  width: 80%;
+  height: 76rpx;
+  background: rgba(255, 255, 255, 0);
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 25rpx;
+}
+
+/* 填写报名信息的模态框 */
+
+.maskLayer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 100;
+  color: #fff;
+}
+
+.choose {
+  width: 100%;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  background: var(--ghostWhite);
+  z-index: 1000;
+  /* overflow: hidden;
+  overflow-y: scroll; */
+  font-size: 32rpx;
+}
+
+.modelInput {
+  width: 88%;
+  margin: 0 auto;
+  margin-top: 60rpx;
+}
+
+.bottomButton {
+  width: 38%;
+  border-radius: 25rpx;
+  text-align: center;
+  letter-spacing: 6rpx;
+  background: #68c0f2 !important;
+  margin: 50rpx auto;
+}
+
+.buttonContent {
+  display: block;
+  margin: 20rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.tabBox {
+  width: 100%;
+}
+
+.showNumberBox {
+  height: 70rpx;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+/* 参与人数列表抽屉 */
+.DrawerWindow {
+  position: absolute;
+  width: 85vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transform: scale(0.9, 0.9) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerWindow.show {
+  transform: scale(1, 1) translateX(0%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.DrawerClose {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  color: transparent;
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+  letter-spacing: 5px;
+  font-size: 50rpx;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerClose.show {
+  opacity: 1;
+  pointer-events: all;
+  width: 15vw;
+  color: #fff;
+}
+
+.DrawerPage .cu-bar.tabbar .action button.icon {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin: 0;
+  display: inline-block;
+}
+
+.DrawerPage .cu-bar.tabbar .action .cu-avatar {
+  margin: 0;
+}
+
+.DrawerPage .nav {
+  flex: 1;
+}
+
+.DrawerPage .nav .cu-item.cur {
+  border-bottom: 0;
+  position: relative;
+}
+
+.DrawerPage .nav .cu-item.cur::after {
+  content: "";
+  width: 10rpx;
+  height: 10rpx;
+  background-color: currentColor;
+  position: absolute;
+  bottom: 10rpx;
+  border-radius: 10rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.DrawerPage .cu-bar.tabbar .action {
+  flex: initial;
+}
+
+.caption2 {
+  display: block;
+  width: 45%;
+  text-align: left;
+}
+
+.content2 {
+  width: 55%;
+}
+
+.hello {
+  height: 100%;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+}

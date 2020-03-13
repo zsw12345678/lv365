@@ -1,0 +1,11 @@
+.search-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.BOX{
+  width: 85%;
+}
+/* pages/enterprise/enterprise.wxss */

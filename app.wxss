@@ -1,0 +1,42 @@
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
+.buttoncolor {
+  background: #68c0f2 !important;
+  color: white;
+}
+
+.nodatePhoto{
+  width: 100%;
+}
+.nodatePhoto image{
+width: 100%;
+display: inline-block;
+position: relative;
+z-index: 0;
+height: 100vh
+} 
+
+
+.bottom-btn-area {
+  position: absolute;
+  width: 80%;
+  height: 38px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: rgba(255, 255, 255, 0);
+  text-align: center;
+}
+
+.bottom-btn-area .btn-area-item {
+  display: inline-block;
+  width: 40%;
+  margin-right: 8px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 15rpx;
+}
+

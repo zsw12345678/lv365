@@ -1,0 +1,64 @@
+<import src="template/template.wxml" />
+<import src="template/template2.wxml" />
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{auditName}}</view>
+</cu-custom>
+
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+
+
+
+
+<view hidden="{{currentTab!==0}}" style="height: 100vh;">
+  <view class="audit">
+    <view class="auditBox">
+      <block wx:for="{{activity}}" wx:for-item="item" wx:for-index="index" wx:key="{{key}}">
+        <view>
+          <template is="msgItem" data="{{...item}}" />
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+  <view wx:if='{{activity.length==0}}'>
+    <view class='nodatePhoto'>
+      <image class='nodatePhotos' src='../photo/nodate.png'></image>
+    </view>
+  </view>
+
+
+</view>
+
+
+
+
+
+<view hidden="{{currentTab!==1}}" style="height: 100vh;">
+
+  <view class="audit">
+    <view class="auditBox">
+      <block wx:for="{{activityDone}}" wx:for-item="item" wx:for-index="index" wx:key="{{key}}">
+        <view>
+          <template is="msgItem2" data="{{...item}}" />
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+
+
+  <view wx:if='{{activityDone.length==0}}'>
+    <view class='nodatePhoto'>
+      <image class='nodatePhotos' src='../photo/nodate.png'></image>
+    </view>
+  </view>
+
+
+
+</view>

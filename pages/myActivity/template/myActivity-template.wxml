@@ -1,0 +1,11 @@
+<template name="activityItem">
+  <view class="box">
+    <view class="boxImg">
+      <image mode="aspectFill" src="{{activityImg}}"></image>
+    </view>
+    <view class="box-information">
+      <text>活动名称：<text class="title">{{activityTitle}}</text></text>
+      <text>活动时间：{{activityStartTime}}</text>
+    </view>
+  </view>
+</template>

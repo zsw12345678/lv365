@@ -1,0 +1,71 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">企业认证</view>
+</cu-custom>
+
+<view class="search-box">
+  <form class="content-box BOX" bindsubmit="formSubmit">
+    <view class="cu-form-group margin-top">
+      <view class="title">企业名称</view>
+      <input placeholder="请输入企业名称" name='enterprise'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">对接人姓名</view>
+      <input placeholder="请输入姓名" name='workerName'></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">电话</view>
+      <input placeholder="请输入电话" maxlength="11" type="number" name='workerNumber'></input>
+    </view>
+
+    <view class="cu-bar bg-white margin-top">
+      <view class="action">
+        请上传企业营业执照
+      </view>
+
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{photo}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{photo[index]}}">
+          <image src='{{photo[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close" bindtap="cancel" data-cancel="0"></text>
+          </view>
+        </view>
+        <view class="solids" bindtap="uploadPhoto" data-status='0' hidden="{{photo!=''}}">
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="cu-bar bg-white margin-top">
+      <view class="action">
+        请上传对接人工作证明
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{photo1}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{photo1[index]}}">
+          <image src='{{photo1[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close" bindtap="cancel" data-cancel="1"></text>
+          </view>
+        </view>
+        <view class="solids" bindtap="uploadPhoto" data-status='1' hidden="{{photo1!=''}}">
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+      </view>
+    </view>
+
+
+
+
+    <view class="flex flex-direction bottom-btn-area">
+      <button class="cu-btn buttoncolor buttonfont lg" form-type="submit">提交</button>
+    </view>
+
+
+
+  </form>
+</view>

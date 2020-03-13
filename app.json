@@ -1,0 +1,63 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/featureDetail/featureDetail",
+    "pages/search/search",
+    "pages/feature/feature",
+    "pages/my/my",
+    "pages/Initiation-activities/Initiation-activities",
+    "pages/detail/detail",
+    "pages/enterprise/enterprise",
+    "pages/myActivity/myActivity",
+    "pages/exercise/exercise",
+    "pages/audit/audit",
+    "pages/editMe/editMe",
+    "pages/communication-system/communication-system"
+  ],
+  "window": {
+    "pageOrientation": "auto",
+    "resizable": true,
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#2C95DC",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "pages/photo/home-select.png",
+        "iconPath": "pages/photo/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/photo/exercise-select.png",
+        "iconPath": "pages/photo/exercise.png",
+        "pagePath": "pages/exercise/exercise",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "pages/photo/my-select.png",
+        "iconPath": "pages/photo/my.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "connectSocket": 100000,
+    "uploadFile": 600000,
+    "downloadFile": 20000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxef56fdfe12bca85d"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

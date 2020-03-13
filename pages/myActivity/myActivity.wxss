@@ -1,0 +1,102 @@
+/* pages/myActivity/myActivity.wxss */
+
+page {
+  height: 100%;
+}
+
+/* 导航 */
+.navbar {
+  height: 80rpx;
+  width: 100%;
+  flex: none;
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  border-bottom: 4rpx solid #ccc;
+  background: #fff;
+}
+
+.navbar .item {
+  position: relative;
+  flex: auto;
+  justify-content: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 顶部导航字体颜色 */
+.navbar .item.active {
+  color: #39b54a;
+  font-weight: bold;
+}
+
+/* 顶部指示条属性 */
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: #39b54a;
+}
+
+
+/* 活动列表 */
+.activityContent {
+  width: 100%;
+  position: relative;
+  top: 80rpx;
+}
+
+.order {
+  width: 92%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx; 
+}
+
+/* myActivity-template.wxss */
+.box {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+.boxImg {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 15rpx;
+}
+
+.boxImg image {
+  height: 100%;
+  border-radius: 5rpx;
+}
+
+.box-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20rpx 15rpx;
+}
+
+.box-information>text {
+  font-size: 30rpx;
+  display: block;
+}
+
+.box-information>text .title {
+  font-weight: bold;
+}
+
+.box-information>text .number {
+  font-size: 35rpx;
+}

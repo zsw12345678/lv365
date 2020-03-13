@@ -1,0 +1,47 @@
+<!--pages/exercise/exercise.wxml-->
+<cu-custom bgColor="bg-gradual-green">
+  <view slot="content">绿创活动中心</view>
+</cu-custom>
+
+<import src="/pages/template/exercise-template.wxml" />
+
+<view class="navContainer" style="top:{{CustomBar}}px;">
+
+  <!--顶部导航栏 -->
+  <view class="navbar">
+    <view class="item flex1 {{nav[index]?'active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-indx="{{index}}" bindtap="filterTab">
+      <text>{{item}}</text>
+      <image class="cuIcon-unfold lg text-gray {{show && !tab[index]?'activeImg':''}}"></image>
+    </view>
+  </view>
+
+  <!--筛选项-->
+  <view class="filterContainer" wx:if="{{show}}">
+    <!-- 活动 -->
+    <view class="tabLayer" hidden="{{tab[0]}}">
+      <text class="{{exercise_id==index?'active':''}}" wx:for="{{filterArr[0]}}" data-id="{{index}}" data-indx="0" data-txt="{{filterArr[0][index]}}" wx:key="index" bindtap="filter">{{filterArr[0][index]}}</text>
+    </view>
+    <!-- 时间 -->
+    <view class="tabLayer" hidden="{{tab[1]}}">
+      <text class="{{time_id==index?'active':''}}" wx:for="{{filterArr[1]}}" data-id="{{index}}" data-indx="1" data-txt="{{filterArr[1][index]}}" wx:key="index" bindtap="filter">{{filterArr[1][index]}}</text>
+    </view>
+    <!-- 人数 -->
+    <view class="tabLayer" hidden="{{tab[2]}}">
+      <text class="{{number_id==index?'active':''}}" wx:for="{{filterArr[2]}}" data-id="{{index}}" data-indx="2" data-txt="{{filterArr[2][index]}}" wx:key="index" bindtap="filter">{{filterArr[2][index]}}</text>
+    </view>
+  </view>
+
+  <!-- 蒙层  -->
+  <view class="maskLayer" hidden='{{hide}}' catchtap="maskTap" catchtouchmove="handleMove"></view>
+</view>
+
+<!--活动列表 -->
+<view class="exerciseLists {{!hide?'hello':''}}">
+  <view style="width:100%; display:flex; flex-wrap:wrap; height:{{!hide?windowHeight:''}}; margin-top:{{!hide?scrollY+'rpx':''}};">
+    <block wx:for="{{listArr}}" wx:for-item="item" wx:key="{{index}}">
+      <view bindtap="toDetail" data-index='{{index}}' class="exercise">
+        <template is="msgItem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+</view>

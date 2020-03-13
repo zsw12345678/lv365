@@ -1,0 +1,50 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <navigator url="/pages/editMe/editMe">
+      <image src="{{avatar}}" class="png" mode="aspectFill"></image>
+    </navigator>
+
+
+    <view class="margin-top-sm">
+      <text>{{nickname}}</text>
+    </view>
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item ">
+      <navigator class="content" url="/pages/myActivity/myActivity" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">我的活动</text>
+      </navigator>
+    </view>
+
+    <view class="cu-item ">
+      <navigator class="content" url="/pages/Initiation-activities/Initiation-activities" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">发起活动</text>
+      </navigator>
+    </view>
+
+    <view class="cu-item ">
+      <navigator class="content" url="/pages/enterprise/enterprise" hover-class="none">
+        <view class="content">
+          <text class="cuIcon-appreciatefill text-red"></text>
+          <text class="text-grey">企业认证</text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="cu-item " wx:if='{{role==1}}'>
+      <navigator class="content" url="/pages/communication-system/communication-system" hover-class="none">
+        <button class="cu-btn content">
+          <text class="cuIcon-writefill text-cyan"></text>
+          <text class="text-grey">系统管理</text>
+        </button>
+      </navigator>
+    </view>
+
+
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

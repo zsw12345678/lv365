@@ -1,0 +1,144 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">系统管理</view>
+</cu-custom>
+
+
+
+
+
+<view class="UCenter-bg">
+
+  <view style="font-size:65rpx">{{totalTurnover}}</view>
+  <view class="margin-top-sm">
+    <text>总交易额</text>
+  </view>
+  <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+</view>
+
+
+
+
+
+
+<view class="padding flex text-center text-grey bg-white shadow-warp ">
+  <view class="flex flex-sub flex-direction solid-right" bindtap="gotoAudit" data-status="0">
+    <view class="text-xxl text-orange">{{visitTotal}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-attentionfill"></text>活动审核</view>
+  </view>
+  <view class="flex flex-sub flex-direction solid-right" bindtap="gotoAudit" data-status="1">
+    <view class="text-xxl text-blue">{{starCount}}</view>
+    <view class="margin-top-sm">
+      <text class="cuIcon-favorfill"></text>花絮审核</view>
+  </view>
+</view>
+
+
+
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view class="cu-item arrow" bindtap="showModel1" data-status="4">
+    <button class="cu-btn content" >
+      <text class="cuIcon-link text-orange"></text>
+      <text class="text-grey">企业活动发起总量</text>
+      <view style="position: absolute;right: 0px;">
+        {{auditedCompanyActivityCount}}
+      </view>
+    </button>
+  </view>
+
+  <view class="cu-item arrow" bindtap="showModel1" data-status="5">
+    <button class="cu-btn content" >
+      <text class="cuIcon-wenzi text-green"></text>
+      <text class="text-grey">个人活动发起总量</text>
+      <view style="position: absolute;right: 0px;">
+        {{auditedPersonalActivityCount}}
+      </view>
+    </button>
+  </view>
+
+  <view class="cu-item arrow" bindtap="showModel1" data-status="6">
+    <button class="cu-btn content" >
+      <text class="cuIcon-emojifill text-red"></text>
+      <text class="text-grey">系统用户总量</text>
+      <view style="position: absolute;right: 0px;">
+        {{managerCount}}
+      </view>
+    </button>
+  </view>
+
+
+
+  <view class="cu-item arrow" bindtap="showModel1" data-status="7">
+    <button class="cu-btn content" >
+      <text class="cuIcon-brandfill text-cyan"></text>
+      <text class="text-grey">企业入驻总量</text>
+      <view style="position: absolute;right: 0px;">
+        {{auditedCompanyCount}}
+      </view>
+    </button>
+  </view>
+
+
+</view>
+
+
+<!-- 底部模态框 -->
+<view class='maskLayer' bindtap="hideModal" wx:if="{{chooseSize}}"></view>
+<view class="choose" animation='{{animationData}}' wx:if="{{chooseSize}}">
+  <view class="tab">
+    <view class="tabIcon">
+
+
+
+      <view class="showData" wx:for='{{menu}}' wx:key="item" bindtap="changeTab" data-index="{{item.index}}">
+        <view class="cuIcon-{{item.showIcon}}  {{item.index==menuSign?'text-green':''}} " style="font-size: 52rpx;"></view>
+        <view class="{{item.index==menuSign?'fontColor':''}} ">{{item.name}}</view>
+      </view>
+
+
+    </view>
+  </view>
+
+  <view class="date" hidden="{{menuSign==3}}" >
+    <text>{{systemDate}}</text>
+  </view>
+
+  
+  <view class="date"  hidden="{{showNumber!=2}}" wx:if='{{menuSign==3}}' >
+    <text>{{systemDate}}</text>
+  </view>
+
+<view hidden="{{showNumber==2}}">
+  <view wx:if='{{menuSign==3}}' class="checkTime" >
+    <view class="checkBox">
+      <view class="cu-form-group">
+        <view class="title">开始时间</view>
+        <picker mode="date" value="{{date}}" start="2000-08-01" end="2080-09-01" bindchange="DateChange" data-startTime='0'>
+          <view class="picker">
+            {{startDate}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="cu-form-group">
+        <view class="title">结束时间</view>
+        <picker mode="date" value="{{date}}" start="2000-09-01" end="2080-09-01" bindchange="DateChange" data-endTime='1'>
+          <view class="picker">
+            {{endDate}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+ <view class=" flex flex-direction bottomButton" wx:if='{{menuSign==3}}' hidden="{{showNumber!=2}}">
+    <button class="cu-btn lg buttoncolor " bindtap='makesureCheck'>确认</button>
+  </view>
+
+  <view class=" flex flex-direction bottomButton" wx:if='{{menuSign==3}}' hidden="{{showNumber==2}}">
+    <button class="cu-btn lg buttoncolor " bindtap='check'>查询</button>
+  </view>
+</view>

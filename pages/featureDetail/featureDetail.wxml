@@ -1,0 +1,37 @@
+ <!--pages/featureDetail/featureDetail.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText" >返回</view>
+  <view slot="content">花絮详情</view>
+</cu-custom>
+
+<view class="featureContainer">
+  <view class="feature">
+    <!-- 标题 -->
+
+    <view class="title">
+      <text>{{featureDetailObject.articleTitle}}</text>
+    </view>
+
+    <!-- 发布人及时间 -->
+    <view class="publisher-time">
+      <text class="publisher">发布人：{{featureDetailObject.launchUserName}}</text>
+      <text class="time">时间：{{featureDetailObject.articlePublishTime}}</text>
+    </view>
+
+     <!-- 正文 -->
+    <view class="featureContent" wx:key="index" data-index="{{index}}" wx:for-items="{{arr}}">
+      <text class="section">{{item.detail}}</text>
+      <view class="featureImgs">
+        <view wx:key="index" data-idx="{{index}}" wx:for-items="{{item.photo}}" wx:key='*item' wx:key="url">
+          <image mode='widthFix' src="{{item}}" data-src="{{item}}" bindtap="imgYu"></image>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 分享按钮 -->
+    <button open-type='share' class="shareButton" hidden="{{status==0}}">分享</button>
+
+  </view>
+
+</view>
+

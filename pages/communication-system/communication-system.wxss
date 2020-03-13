@@ -1,0 +1,113 @@
+@import "../data/model.wxss";
+
+.UCenter-bg {
+  background: linear-gradient(45deg, #39b54a, #8dc63f);
+  background-size: cover;
+  height: 300rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.UCenter-bg text {
+  opacity: 0.8;
+}
+
+.UCenter-bg image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.UCenter-bg .gif-wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
+map, .mapBox {
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
+map, .mapBox {
+  width: 750rpx;
+  height: 300rpx;
+}
+
+.png {
+  border-radius: 50%;
+  width: 150rpx !important;
+  height: 150rpx !important;
+}
+
+/* pages/communication-system/communication-system.wxss */
+
+.search-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-box {
+  width: 95%;
+}
+
+.tab {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.tabIcon {
+  width: 90%;
+  display: flex;
+  margin: 25rpx auto;
+}
+
+.showData {
+  width: 25%;
+  text-align: center;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+  font-size: 70rpx;
+  color: #0081ff;
+  margin: 100rpx auto;
+}
+
+.fontColor {
+  color: green;
+}
+
+.checkTime {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 38rpx auto;
+}
+
+.checkBox {
+  width: 80%;
+  /* border: 3rpx solid #cccc; */
+  margin: 10rpx auto;
+}

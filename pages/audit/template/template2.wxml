@@ -1,0 +1,41 @@
+<template name="msgItem2">
+
+  <view class="bg-white whiteBox">
+    <view class="flex solid-bottom padding align-start"  >
+
+      <view class=" margin-xs radius" style="width:25%" bindtap="godetail" data-index="{{activityId}}" data-index1="{{articleId}}">
+        <image mode="aspectFill" wx:if='{{articleImg}}' src="{{articleImg[0]}}" style="height:120rpx;width:140rpx"></image>
+        <image mode="aspectFill" hidden='{{articleImg}}' src="{{activityImg}}" style="height:120rpx;width:140rpx"></image>
+      </view>
+
+
+      <view class="margin-xs radius  template" bindtap="godetail" data-index="{{activityId}}" data-index1="{{articleId}}">
+        <view style="height:90%;position:relative;width:350rpx;">
+          <view style="top:0rpx;position:absolute;font-weight:bold;width:100%;overflow:hidden;height:32rpx" wx:if='{{articleTitle}}'>{{articleTitle}}</view>
+          <view style="bottom:0rpx;position:absolute;font-weight:bold;width:100%;overflow:hidden;height:32rpx" wx:if='{{articleTitle}}'>发起人:{{launchUserName}}</view>
+
+
+          <view style="top:0rpx;position:absolute;font-weight:bold;width:100%;overflow:hidden;height:32rpx" hidden='{{articleTitle}}'>{{activityTitle}}</view>
+          <!-- <view style="top:50%;position:absolute;font-weight:bold;" hidden='{{articleTitle}}'>发起人:{{activityLaunchUserName}}</view> -->
+         <view style="bottom:0rpx;position:absolute;font-weight:bold;width:100%;overflow:hidden;height:32rpx" hidden='{{articleTitle}}'>发起人:{{activityLaunchUserName}}</view>
+        </view>
+      </view>
+
+      <view class="margin-xs radius  template">
+        <view style="height:98%;position:relative;width:150rpx;">
+          <button class="cu-btn round sm bg-orange 1" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" hidden='{{articleTitle}}'  wx:if="{{activityState=='已审核'}}" >已通过审核</button>
+          <button class="cu-btn round sm bg-orange 2" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{activityState=='取消'}}">用户已取消</button>
+            <button class="cu-btn round sm bg-orange 2" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{whoCancel=='未通过审核'}}">未通过审核</button>
+             <button class="cu-btn round sm bg-orange 2" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{articleState=='取消'}}">未通过审核</button>
+            <button class="cu-btn round sm bg-orange 2" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{activityState=='已审核，活动已结束'}}">已通过审核</button>
+           <button class="cu-btn round sm bg-orange 2" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{activityState=='已审核，活动已结束'}}">已通过审核</button>
+          <button class="cu-btn round sm bg-orange 3" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{activityState=='已审核，活动报名时间已过'}}">已通过审核</button>
+          <button class="cu-btn round sm bg-orange 4" style="bottom:0rpx;position:absolute;padding: 0 10rpx;height:50rpx" wx:if="{{articleState=='已审核'}}">已通过审核</button>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+
+</template>

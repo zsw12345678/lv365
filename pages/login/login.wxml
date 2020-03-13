@@ -1,0 +1,33 @@
+<!--pages/myActivity/myActivity.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="content">绿创活动中心</view>
+</cu-custom>
+
+<view class="container">
+  <view class="userinfo">
+    <block>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+     
+      <text class="user-motto" style="font-size:32rpx;margin:20rpx auto" wx:if="{{hasUserInfo}}">绿创活动中心,欢迎您！</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button> -->
+  </view>
+</view>
+
+
+
+<view class='goods-detail-m' wx:if='{{isShowModel}}'>
+  <view class="mask-m"></view>
+  <view class="goodsdetail-m">
+    <view class='goodsdetail-m-title'>{{modelText}}</view>
+    <view class='goodsdetail-m-body'>
+      <view class='goodsdetail-m-body-left' bindtap='cancel' data-cancel="0" wx:if="{{status==0}}">拒绝授权</view>
+      <view class='goodsdetail-m-body-left' bindtap='cancel' data-cancel="1" wx:if="{{status==1}}">拒绝授权</view>
+      <button class='goodsdetail-m-body-right' open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:if="{{status==0}}">授权</button>
+      <button class='goodsdetail-m-body-right' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{status==1}}">授权</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<template name="msgItem1">
+
+  <view class=" whiteBox  back">
+    <view class="flex solid-bottom padding align-start" bindtap="tofeatureDetail1"  data-status="1" data-index="{{activityId}}" >
+
+      <view class="  margin-xs radius" style="width:25%">
+        <image src="{{activityImg}}" mode="aspectFill" style="height:130rpx;width:150rpx"></image>
+      </view>
+
+
+      <view class="margin-xs radius  template">
+        <view style="height:80%;position:relative;width:400rpx;">
+          <view style="top:0rpx;position:absolute;font-weight:bold;">{{activityTitle}}</view>
+          <view style="bottom:0rpx;position:absolute;font-size:24rpx">{{activityLaunchUserName}}</view>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+
+
+</template>

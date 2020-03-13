@@ -1,0 +1,78 @@
+/* pages/featureDetail/featureDetail.wxss */
+
+.featureContainer {
+  margin: 30rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.feature {
+  width: 88%;
+  margin: 0 auto;
+}
+
+/* 标题栏 */
+.title {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; 
+}
+.title text {
+  display: block;
+  margin: 50rpx 0 35rpx 0;
+  font-size: 38rpx;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+/* 发布人及时间 */
+.publisher-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10rpx 0;
+}
+.publisher-time text {
+  font-size: 28rpx;
+  color: grey;
+}
+
+/* 分享按钮 */
+.shareButton {
+  height: 80rpx;
+  width: 97%;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 32rpx;
+  letter-spacing: 6rpx;
+  background: #68c0f2;
+  margin: 40rpx auto;
+}
+
+/* 正文 */
+.featureContent {
+  margin: 25rpx 10rpx;
+}
+
+.section {
+  display: block;
+  font-size: 30rpx;
+  line-height: 48rpx;
+}
+
+.featureImgs {
+  width: 100%;
+  margin: 25rpx auto;
+}
+.featureImgs image {
+  width: 100%;
+  margin-bottom: 6rpx;
+  height: 450rpx;
+  border-radius: 5rpx;
+}
+
+
+

@@ -1,0 +1,235 @@
+.hello {
+  height: 100%;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+}
+
+
+page {
+  height: 100%;
+}
+
+.addressActivity {
+  width: 50%;
+  overflow: hidden;
+}
+
+.search-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-box {
+  width: 85%;
+}
+
+.buttoncolor {
+  background: #68c0f2 !important;
+  color: white;
+}
+
+.bottom-btn-area {
+  position: absolute;
+  width: 80%;
+  height: 38px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: rgba(255, 255, 255, 0);
+  text-align: center;
+}
+
+.bottom-btn-area .btn-area-item {
+  display: inline-block;
+  width: 40%;
+  margin-right: 8px;
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 15rpx;
+}
+
+.choose {
+  /* height: 300px; */
+  width: 100%;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  background: var(--ghostWhite);
+  /* border: solid 1rpx #ccc; */
+  overflow: hidden;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+.maskLayer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 100;
+  color: #fff;
+}
+
+.modelInput {
+  width: 80%;
+  margin: 25rpx auto;
+}
+
+.bottomButton {
+  margin: 20rpx auto;
+  width: 80%;
+}
+
+.highColor {
+  background: #39b54a !important;
+  color: white;
+}
+
+.color {
+  background: white !important;
+  color: black;
+}
+
+.infoText {
+  margin-top: 20rpx;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
+picker-view {
+  background-color: white;
+  margin-top: 0rpx;
+  padding: 0;
+  width: 100%;
+  bottom: 0;
+  height: 380rpx;
+  position: fixed;
+}
+
+picker-view-column view {
+  vertical-align: middle;
+  font-size: 35rpx;
+  line-height: 50rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----------------------------------------- */
+
+.animation-element-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+.animation-element {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 470rpx;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.animation-button {
+  top: 20rpx;
+  width: 290rpx;
+  height: 100rpx;
+  align-items: center;
+}
+
+.left-bt {
+  left: 30rpx;
+  color: #999;
+  display: inline-flex;
+  position: fixed;
+  margin-top: 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.right-bt {
+  right: 30rpx;
+  color: #999;
+  display: inline-flex;
+  position: fixed;
+  margin-top: 20rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 34rpx;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.line {
+  display: block;
+  position: fixed;
+  height: 1rpx;
+  width: 100%;
+  margin-top: 89rpx;
+  background-color: #eee;
+}
+
+.bottomBUTTON {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.buttonO {
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.adress {
+  width: 100%;
+}
+
+.addressBox {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.usuallyAddress {
+  font-size: 30rpx;
+  margin: 20rpx auto;
+}
+
+.high {
+  background: #39b54a !important;
+  color: white;
+}
+
+.box {
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  background: white;
+  border-bottom: 0.5rpx #ccc solid;
+  line-height: 80rpx;
+}

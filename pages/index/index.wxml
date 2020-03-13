@@ -1,0 +1,92 @@
+<import src="template/template.wxml" />
+<import src="template/template1.wxml" />
+<cu-custom bgColor="bg-gradual-green">
+  <view slot="content">绿创活动中心</view>
+</cu-custom>
+
+<view class="cu-bar bg-white search">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <text type="text" placeholder="输入搜索的关键词"  bindtap='openSearch' style="width:100%">
+    <text style="color:#7F7F7F">输入搜索的关键词</text>
+    </text>
+  </view>
+  <view class="action" bindtap='openSearch'>
+    <button class="cu-btn bg-gradual-green shadow-blur round">搜索</button>
+  </view>
+</view>
+
+
+
+<swiper indicator-active-color='white' class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+
+<view  wx:for="{{ads}}" wx:key>
+<swiper-item  bindtap="adsGo"  data-status="{{item.rotaryInfoType}}"  data-index='{{item.activityId}}'   data-index1='{{item.articleId}}' >
+    <image src="{{item.img}}" mode="aspectFill"   ></image>
+    <video src="{{item.img}}"  autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</view>
+  
+</swiper>
+
+
+<view class='navBox'>
+
+  <view class='navBtn' wx:for="{{navBtn}}" wx:key="{{index}}">
+    <view data-index='{{index}}' bindtap="onBindtap">
+      <image class='navImg' src='{{item.icon}}' ></image>
+      <view class='navName'>{{item.name}}</view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<view class='menu-box'>
+  <view class='box-line'></view>
+  <view class='menu-bar'>热门活动</view>
+</view>
+
+<view class="audit">
+  <view class="auditBox">
+    <block wx:for="{{activity}}" wx:for-item="item" wx:for-index="index" wx:key="{{key}}">
+      <view>
+        <template is="msgItem1" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+</view>
+
+
+
+<view class='menu-box' style="margin-top:20rpx;">
+  <view class='box-line'></view>
+  <view class='menu-bar'>往期花絮</view>
+</view>
+
+<view class="audit">
+  <view class="auditBox">
+    <block wx:for="{{activityArticle}}" wx:for-item="item" wx:for-index="index" wx:key="{{key}}">
+      <view data-index="{{index}}" >
+        <template is="msgItem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+</view>
+
+
+
+
+
+<view class='goods-detail-m' wx:if='{{isShowModel}}'>
+  <view class="mask-m"></view>
+  <view class="goodsdetail-m">
+    <view class='goodsdetail-m-title'>{{modelText}}</view>
+    <view class='goodsdetail-m-body'>
+      <view class='goodsdetail-m-body-left' bindtap='cancel' data-cancel="0">拒绝授权</view>
+      <button class='goodsdetail-m-body-right' open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:if="{{status==0}}">授权</button>
+      <button class='goodsdetail-m-body-right' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{status==1}}">授权</button>
+    </view>
+  </view>
+</view>

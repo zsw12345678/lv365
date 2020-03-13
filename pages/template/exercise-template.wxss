@@ -1,0 +1,45 @@
+/* template.wxss */
+
+.boxContainer {
+  width: 100%;
+  /* height: 500rpx; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.box {
+  width: 94%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18rpx;
+  overflow: hidden;
+}
+.box image {
+  width: 100%;
+  height: 280rpx;
+}
+
+.box-information {
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 15rpx;
+}
+
+.box-information>text {
+  display: block;
+  padding-top: 6rpx;
+}
+
+.box-information .title {
+  font-size: 28rpx;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box-information .number {
+  display: inline;
+  font-size: 28rpx;
+}

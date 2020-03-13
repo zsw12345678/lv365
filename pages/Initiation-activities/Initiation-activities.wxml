@@ -1,0 +1,277 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发起活动</view>
+</cu-custom>
+
+
+
+<view wx:if="{{show==false}}"  class="{{chooseSize==true?'hello':''}}  {{showM==true?'hello':''}}"     >
+  <view class="padding-sm">
+    <view class="flex flex-wrap justify-around">
+      <button class="cu-btn  animation-{{animation==item.name?item.name:''}}   {{indivadualShow==true?'highColor':'color'}} margin-sm basis-sm shadow" bindtap="toggle" data-status="0">{{item.name}}个人发布</button>
+      <button class="cu-btn  animation-{{animation==item.name?item.name:''}}  {{enterpriseShow==true?'highColor':'color'}}  margin-sm basis-sm shadow" bindtap="toggle" data-status="1">{{item.name}}企业发布</button>
+    </view>
+  </view>
+
+
+  <view class="search-box">
+    <form class="content-box" bindsubmit="formSubmit">
+      <view class="cu-form-group margin-top">
+        <view class="title">活动名称</view>
+        <input placeholder="请输入标题"  name='activityName'></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">发起人姓名</view>
+        <input placeholder="请输入姓名或单位" name='name'></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">发起人电话</view>
+        <input placeholder="请输入电话" maxlength="11" type="number" name='phone'></input>
+      </view>
+
+
+
+
+
+      <view class="cu-form-group" bindtap="translate" data-index="0">
+        <view class="title">报名开始时间</view>
+        <view class="picker">
+          {{RegistrationTime}}
+        </view>
+        <text class="cuIcon-right"> </text>
+      </view>
+
+
+      <view class="cu-form-group" bindtap="translate" data-index="1">
+        <view class="title">报名截止时间</view>
+        <view class="picker">
+          {{RegistrationDeadline}}
+        </view>
+        <text class="cuIcon-right"> </text>
+      </view>
+
+
+      <view class="cu-form-group" bindtap="showAddress">
+        <view class="title">活动地点</view>
+        <text class="addressActivity">{{address}}</text>
+        <text class="cuIcon-locationfill text-orange"></text>
+      </view>
+      
+      <view class="cu-form-group" bindtap="translate" data-index="2">
+        <view class="title">活动开始时间</view>
+        <view class="picker">
+          {{InitiationActivities}}
+        </view>
+
+        <text class="cuIcon-right"> </text>
+      </view>
+
+      <view class="cu-form-group" bindtap="translate" data-index="3">
+        <view class="title">活动结束时间</view>
+        <view class="picker">
+          {{EndActivity}}
+        </view>
+        <text class="cuIcon-right"> </text>
+      </view>
+
+
+      <view class="cu-form-group">
+        <view class="title">活动人数</view>
+        <input type="number" placeholder="请输入活动人数" name='number'></input>
+      </view>
+
+
+
+      <view class="cu-form-group margin-top" wx:if="{{enterpriseShow}}">
+        <view class="title">是否需要费用</view>
+        <view wx:if='{{activityFee!=0}}'>￥</view>
+        {{activityFee}}
+        <switch bindchange="switchFee" data-target="bottomModal" name='feeOrNot' checked="{{switchFee}}" />
+      </view>
+
+
+
+
+
+      <view class="cu-form-group align-start" hidden="{{chooseSize}}">
+        <view class="title">活动详情</view>
+        <textarea  hidden='{{showM==true}}' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入活动详情" name='activityDetail'></textarea>
+      </view>
+
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          请上传活动图片
+        </view>
+
+      </view>
+      <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="solids" bindtap="uploadPhoto" data-status='0'>
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+          <view class="solids" wx:key="{{key}}" hidden="{{photo==''}}">
+            <image src="{{photo}}"  class="showImg" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+
+
+      <view class="flex flex-direction  " style="margin:25rpx auto">
+        <button class="cu-btn lg buttoncolor" form-type="submit">发起</button>
+      </view>
+
+
+    </form>
+
+
+    <!-- 底部模态框 -->
+    <!-- <form bindsubmit="formSubmitFee"> -->
+    <view class='maskLayer' wx:if="{{chooseSize}}" bindtap="hideModal" data-index="0" catchtouchmove="preventTouchMove"></view>
+    <view class="choose" wx:if="{{chooseSize}}" animation='{{animationData}}'>
+
+
+      <view wx:if="{{model==0}}">
+        <view class="cu-form-group  modelInput">
+          <view class="title">费用/人</view>
+          <input type="digit" placeholder="请输入0元以上的费用" bindblur="fee" data-index="0"></input>
+        </view>
+
+
+        <view class="cu-form-group  modelInput">
+          <view class="title">对公账号</view>
+          <input type="number" placeholder="请输入对公账号" bindblur="fee" data-index="1" maxlength="20"></input>
+        </view>
+
+        <radio-group class="block modelInput" bindchange="bill">
+          <view class="cu-form-group margin-top">
+            <view class="title">开发票</view>
+            <radio checked value="0"></radio>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">不开发票</view>
+            <radio class="radio" value="1"></radio>
+          </view>
+        </radio-group>
+
+
+        <view class="modelInput" wx:if='{{fee}}'>
+          <view class="cu-form-group ">
+            <view class="title">邮寄地址</view>
+            <input placeholder="请输入邮寄地址" bindblur="fee" data-index="2"></input>
+          </view>
+          <view class="cu-form-group ">
+            <view class="title">邮政编码</view>
+            <input placeholder="请输入邮政编码" type="number" maxlength="6" bindblur="fee" data-index="3"></input>
+          </view>
+          <view class="cu-form-group ">
+            <view class="title">联系人</view>
+            <input placeholder="请输入姓名" bindblur="fee" data-index="4"></input>
+          </view>
+          <view class="cu-form-group ">
+            <view class="title">联系电话</view>
+            <input placeholder="请输入电话" type="number" maxlength="11" bindblur="fee" data-index="5"></input>
+          </view>
+        </view>
+
+        <view class="flex flex-direction bottomButton ">
+          <button class="cu-btn  buttoncolor " bindtap="makesure">确认</button>
+        </view>
+      </view>
+
+
+
+
+      <view wx:if="{{model==1}}" class="adress">
+        <view class="addressBox">
+          <view class="usuallyAddress" wx:if="{{watchAdress==true}}">常用地址</view>
+          <view class="usuallyAddress" wx:if="{{watchAdress==false}}">此场地已被预约的时间</view>
+          <view class="cu-list menu card-menu margin-top-xl  shadow-lg " style="margin-bottom:30rpx">
+            <view wx:for='{{addressDate}}' wx:key='{{key}}' wx:index='{{index}}' bindtap="highColor" data-index="{{index}}" wx:if="{{watchAdress==true}}">
+              <view class="{{index==shine? 'high' : ''}} box" style="overflow:hidden">
+                <text class="">{{item.addressName}}</text>
+              </view>
+            </view>
+            <view wx:for='{{addressTime}}' wx:key='{{key}}' wx:index='{{index}}' data-index="{{index}}" wx:if="{{watchAdress==false}}">
+              <view class="box">
+                <text class="" style="font-size:25rpx">{{item.activityStartTime}}~{{item.activityEndTime}}</text>
+              </view>
+            </view>
+
+            <view hidden='{{addressTime.length!=0}}' wx:key='{{key}}' wx:index='{{index}}' data-index="{{index}}" wx:if="{{watchAdress==false}}">
+              <view class="box">
+                <text class="" style="font-size:25rpx">该场地暂无人预约</text>
+              </view>
+            </view>
+
+
+
+
+            <view class="flex flex-direction bottomButton " wx:if="{{watchAdress==false}}">
+              <button class="cu-btn  buttoncolor " bindtap="watchTime" data-watch="1">确认</button>
+            </view>
+            <view style="" wx:if="{{watchAdress==true}}">
+              <view class="flex-direction  submit" style="margin:30rpx auto">
+                <button class="cu-btn buttoncolor" style="width:42%;float:left" bindtap="watchTime" form-type="submit" data-id="0" data-watch="0">查看时间</button>
+                <button class="cu-btn buttoncolor" style="width:42%;float:right" form-type="submit" bindtap="makesureAddress" data-id="1" data-index="1">确认</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+  <view class="animation-element-wrapper" animation="{{animation}}" wx:if='{{showM}}'>
+    <view class="animation-element" catchtap="nono">
+      <text class="left-bt" catchtap="hiddenFloatView">取消</text>
+      <text class="right-bt" catchtap="hiddenFloatView">确定</text>
+      <view class="line"></view>
+      <picker-view indicator-style="height: 50rpx;" value="{{value}}" bindchange="bindChange">
+        <!--年-->
+        <picker-view-column>
+          <view wx:for="{{years}}" wx:key="">
+            {{item}}
+          </view>
+        </picker-view-column>
+        <!--月-->
+        <picker-view-column>
+          <view wx:for="{{months}}" wx:key="">
+            {{item}}
+          </view>
+        </picker-view-column>
+        <!--日-->
+        <picker-view-column>
+          <view wx:for="{{days}}" wx:key="">
+            {{item}}
+          </view>
+        </picker-view-column>
+        <!--时-->
+        <picker-view-column>
+          <view wx:for="{{hours}}" wx:key="">
+            {{item}}
+          </view>
+        </picker-view-column>
+        <!--分-->
+        <picker-view-column>
+          <view wx:for="{{minutes}}" wx:key="">
+            {{item}}
+          </view>
+        </picker-view-column>
+        <!--秒-->
+        <picker-view-column>
+          <view wx:for="{{seconds}}" wx:key="">
+            {{item}}
+          </view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
+
+</view>

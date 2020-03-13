@@ -1,0 +1,105 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/* showModel自定义 start */
+
+.goods-detail-m .mask-m {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.goods-detail-m .mask-m {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.goodsdetail-m {
+  position: fixed;
+  bottom: 30%;
+  left: 125rpx;
+  z-index: 4999999999;
+  width: 500rpx;
+  background: #fff;
+}
+
+.goodsdetail-m-title {
+  /* height: 100rpx; *//* box-sizing: border-box; *//* border: 1rpx solid #aaa; */
+  padding: 30rpx 40rpx 30rpx 40rpx;
+  font-size: 28rpx;
+  color: #aaa;
+  text-align: center;
+}
+
+.goodsdetail-m-body {
+  width: 500rpx;
+  height: 90rpx;
+  display: flex;
+}
+
+.goodsdetail-m-body-left {
+  width: 250rpx;
+  box-sizing: border-box;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #aaa;
+  border-top: 1rpx solid #e5e5e6;
+  text-align: center;
+}
+
+.goodsdetail-m-body-right {
+  width: 250rpx;
+  box-sizing: border-box;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #3cc51f;
+  border-top: 1rpx solid #e5e5e6;
+  border-left: 1rpx solid #e5e5e6;
+  border-radius: 0;
+  text-align: center;
+}
+
+button {
+  background: #fff;
+}
+
+button::after {
+  border: none;
+  border-radius: 0px;
+}

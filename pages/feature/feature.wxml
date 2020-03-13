@@ -1,0 +1,108 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发布花絮</view>
+</cu-custom>
+
+
+<view class="search-box">
+  <form class="content-box BOX" bindsubmit="formSubmit">
+    <view class="cu-form-group margin-top">
+      <view class="title">文章标题</view>
+      <input placeholder="请输入文章标题" name='textName'></input>
+    </view>
+
+
+    <view class="cu-form-group margin-top">
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" name="detail" placeholder="请输入花絮内容"></textarea>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        请上传活动图片（最多三张）
+      </view>
+    </view>
+
+
+    <view class="cu-form-group">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+
+        <view class="solids" bindtap="uploadPhoto" data-status='0'>
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+        <view class="solids" wx:for='{{picture}}' wx:key="{{key}}">
+          <image src="{{picture[index]}}" class="showImg" mode="aspectFill"></image>
+        </view>
+
+
+      </view>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" name="detail2" placeholder="请输入花絮内容"></textarea>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        请上传活动图片（最多三张）
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+
+        <view class="solids" bindtap="uploadPhoto" data-status='1'>
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+        <view class="solids" wx:for='{{picture2}}' wx:key="{{key}}">
+          <image src="{{picture2[index]}}" class="showImg" mode="aspectFill"></image>
+        </view>
+
+
+      </view>
+    </view>
+
+
+    <view class="cu-form-group margin-top">
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" name="detail3" placeholder="请输入花絮内容"></textarea>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">
+        请上传活动图片（最多三张）
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+
+        <view class="solids" bindtap="uploadPhoto" data-status='2'>
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+        <view class="solids" wx:for='{{picture3}}' wx:key="{{key}}">
+          <image src="{{picture3[index]}}" class="showImg" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+
+    <view style="">
+      <view class="flex-direction  submit">
+        <button class="cu-btn buttoncolor" style="width:42%;height:70rpx;float:left;" form-type="submit" data-id="2">预览</button>
+        <button class="cu-btn buttoncolor" style="width:42%;height:70rpx;float:right;" form-type="submit" data-id="1">提交</button>
+      </view>
+    </view>
+
+  </form>
+</view>
